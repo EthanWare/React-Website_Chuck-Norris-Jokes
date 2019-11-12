@@ -11,8 +11,10 @@ class Main extends React.Component {
         this.state = {
             fact: "",
             categories: []
+            // selectedOption: ""
         };
         this.getFact = this.getFact.bind(this);
+        // this.componentDidMount = this.componentDidMount.bind(this)
     }
 
     getFact(){
@@ -22,57 +24,32 @@ class Main extends React.Component {
             });
     }
 
-    // getCategories(){
+    //get categories at page load
+    // componentDidMount(){
     //     axios.get('https://api.chucknorris.io/jokes/categories')
     //         .then((response) => {
-    //             console.log(response)
-    //             //this.setState({categories: response.data.value})
-    //         });
-    // }
-
-    // componentWillMount(){
-    //     axios.get('https://api.chucknorris.io/jokes/categories')
-    //         .then((response) => {
-    //             console.log(response)
-    //             //this.setState({categories: response.data.value})
+    //             // console.log(response.data[1])
+    //             for(var i = 0;i < response.data.length;i++) {
+    //                 this.state.categories.push(<option value={response.data[i]}>{response.data[i]}</option>);
+    //             };
     //         });
     // }
 
     render(){
         return(
-            <div>
-                <h1>Chuck Noris Fact</h1>
+            <div className="main">
+                <h1>Chuck Noris Facts</h1>
                 <h3>{this.state.fact}</h3>
-                <button onClick={this.getFact}>Next Fact</button>
+                <div>
+                    {/* <select>
+                        {this.state.categories}
+                    </select> */}
+                    <button onClick={this.getFact}>Next Fact</button>
+                </div>
             </div>
         )
     }
 }
-
-// class Hello extends React.Component {
-//     constructor(){
-//         super();
-//         this.state = {
-//             message: "my friend (from state)!"
-//         }
-//         this.updateMessage = this.updateMessage.bind(this);
-//     }
-
-//     updateMessage() {
-//         this.setState({
-//             message: "my friend (from changed state)!"
-//         });
-//     }
-
-//     render() {
-//         return (
-//             <div>
-//                 <h1>Hello {this.state.message}!</h1>
-//                 <button onClick={this.updateMessage}>Click me!</button>
-//             </div>
-//         )
-//     }  
-// }
 
 ReactDOM.render(  
     <Main />,
