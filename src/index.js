@@ -45,8 +45,8 @@ class Main extends React.Component {
                 for(var i = 0;i < response.data.length;i++) {
                     this.state.categories.push(<option value={response.data[i]}>{response.data[i]}</option>);
                 };
+                this.forceUpdate()
             });
-            // this.forceUpdate()
     }
 
     setSelectedOption(e){
